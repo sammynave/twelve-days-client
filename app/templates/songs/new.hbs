@@ -1,0 +1,19 @@
+<form {{action (perform create) on="submit"}}>
+  <label>
+    name: {{one-way-input name update=(action (mut name))}}
+  </label>
+
+  <label>
+    lyrics: {{one-way-textarea lyrics update=(action (mut lyrics))}}
+  </label>
+
+  <label>
+    audio: {{one-way-input audio update=(action (mut audio)) }}
+  </label>
+
+  {{#if create.isRunning}}
+    saving...
+  {{else}}
+    <button type="submit">create</button>
+  {{/if}}
+</form>

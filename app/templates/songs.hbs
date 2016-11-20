@@ -1,0 +1,5 @@
+{{#each model as |song|}}
+  {{link-to song.name "songs.show" song.id}}
+{{/each}}
+
+{{outlet}}
