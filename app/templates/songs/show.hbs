@@ -1,3 +1,4 @@
-name: {{model.name}}
-lyrics: {{model.lyrics}}
-audio: {{model.audio}}
+<hbox xs="fit">name: {{model.name}}</hbox>
+<hbox xs="fit">lyrics: {{lyrics-chooser lines=model.lines addPosition=addPosition}}</hbox>
+<hbox xs="fit">audio: {{model.audio}}</hbox>
+<button {{action (perform destroy)}}>delete</button>

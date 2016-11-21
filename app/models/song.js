@@ -4,5 +4,7 @@ import attr from 'ember-data/attr';
 export default Model.extend({
   name: attr(),
   lyrics: attr(),
-  audio: attr()
+  audio: attr(),
+  lines: attr(),
+  wordPositions: attr()
 });

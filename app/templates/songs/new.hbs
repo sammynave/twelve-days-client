@@ -1,19 +1,53 @@
 <form {{action (perform create) on="submit"}}>
-  <label>
-    name: {{one-way-input name update=(action (mut name))}}
-  </label>
+  <vbox xs="10" class="form">
+    <hbox>
+      <centered xs="2">
+        <label>
+          name
+          {{#each song.errors.name as |error|}}
+            {{error.message}}
+          {{/each}}
+        </label>
+      </centered>
+      <box xs="fill">
+        {{one-way-input name update=(action (mut name))}}
+      </box>
+    </hbox>
 
-  <label>
-    lyrics: {{one-way-textarea lyrics update=(action (mut lyrics))}}
-  </label>
+    <hbox>
+      <centered xs="2">
+        <label>
+          lyrics
+          {{#each song.errors.lyrics as |error|}}
+            {{error.message}}
+          {{/each}}
+        </label>
+      </centered>
+      <box xs="fill">
+        {{one-way-textarea lyrics update=(action (mut lyrics))}}
+      </box>
+    </hbox>
 
-  <label>
-    audio: {{one-way-input audio update=(action (mut audio)) }}
-  </label>
+    <hbox>
+      <centered xs="2">
+        <label>
+          audio
+          {{#each song.errors.audio as |error|}}
+            {{error.message}}
+          {{/each}}
+        </label>
+      </centered>
+      <box xs="fill">
+        {{one-way-input audio update=(action (mut audio))}}
+      </box>
+    </hbox>
 
-  {{#if create.isRunning}}
-    saving...
-  {{else}}
-    <button type="submit">create</button>
-  {{/if}}
+    <hbox justify="end">
+      {{#if create.isRunning}}
+        saving...
+      {{else}}
+        <button class="col-xs-4" type="submit">create</button>
+      {{/if}}
+    </hbox>
+  </vbox>
 </form>

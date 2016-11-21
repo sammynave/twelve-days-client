@@ -1,3 +1,7 @@
-{{link-to "new song" "songs.new"}}
-{{link-to "all songs" "songs.index"}}
-{{outlet}}
+<page>
+  <hbox class="nav" justify="end" xs="fit">
+    <centered xs="fit">{{link-to "home" "index" class="nav-link"}}</centered>
+    <centered xs="fit">{{link-to "all songs" "songs.index" class="nav-link"}}</centered>
+  </hbox>
+  {{outlet}}
+</page>

@@ -1,0 +1,95 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+input, textarea {
+  border: 1px solid #ccc;
+  border-radius: .3em;
+  line-height: 2em;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 15em;
+}
+
+button {
+  border-radius: .3em;
+  border: 1px solid #ccc;
+  line-height: 2em;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav {
+  background-color: #444;
+}
+
+.nav-link {
+  color: #fff;
+  border-bottom: 1px solid #444;
+  padding: .5em
+}
+
+.active {
+  background-color: #222;
+}
+
+.nav-link.active {
+  border-bottom: 1px solid #fff;
+}
+
+.song-link.active {
+  border-right: 1px solid #fff;
+}
+
+.form {
+  margin: auto;
+  padding-top: 1em;
+}
+
+.song-link {
+  color: #fff;
+  padding: .5em;
+  border-right: 1px solid #444;
+}
+
+.songs-list-wrapper {
+  color: #fff;
+  background-color: #444;
+
+  padding-right: 0;
+  padding-left: 0;
+  overflow-y: auto;
+}
+
+.fill {
+  position: fixed;
+  max-width: inherit;
+  min-width: inherit;
+  padding: 0;
+  width: 100%;
+}
+
+.songs-list {
+  background-color: #444;
+  padding: 0;
+  overflow-y: auto;
+  max-height: 70vh;
+  max-width: 100%;
+}
+
+.word {
+  cursor: pointer;
+}

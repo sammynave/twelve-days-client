@@ -1,0 +1,9 @@
+{{#each lines as |line index|}}
+  <hbox>
+    {{#if line}}
+      {{line-presenter line=line lineIndex=index choose=(action "choose")}}
+    {{else}}
+      <br>
+    {{/if}}
+  </hbox>
+{{/each}}
