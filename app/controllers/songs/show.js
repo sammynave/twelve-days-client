@@ -1,14 +1,31 @@
 import Ember from 'ember';
-import { task } from 'ember-concurrency';
+import {
+  task,
+  all
+} from 'ember-concurrency';
 
 const {
   Controller,
+  computed,
   get,
   set,
   isArray
 } = Ember;
 
 export default Controller.extend({
+  timer: null,
+  positions: computed('model', function() {
+    return get(this, 'model.positions');
+  }),
+  save: task(function*() {
+    if (get(this, 'isRunning')) {
+      return;
+    }
+
+    let saveCalls = [];
+    get(this, 'positions').forEach((p) => saveCalls.push(p.save()));
+    yield all(saveCalls);
+  }),
   destroy: task(function*() {
     try {
       yield get(this, 'model').destroyRecord();
@@ -18,13 +35,24 @@ export default Controller.extend({
     }
   }),
   addPosition: task(function*(position) {
-    // add new Position model
-    // {
-    //  belongsTo song
-    //  time
-    //  lineIndex
-    //  wordIndex
-    // }
-    console.log(position);
-  })
+    if (get(this, 'isRunning')) {
+      let [lineIndex, wordIndex] = position;
+      let newPosition = yield get(this, 'store').createRecord('position', {
+        song: get(this, 'model'),
+        time: Date.now(),
+        lineIndex,
+        wordIndex
+      });
+    }
+  }),
+  actions: {
+    start() {
+      set(this, 'isRunning', true);
+      set(this, 'startTime', Date.now());
+    },
+    stop() {
+      set(this, 'endTime', Date.now());
+      set(this, 'isRunning', false);
+    }
+  }
 });

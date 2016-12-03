@@ -1,4 +1,40 @@
-<hbox xs="fit">name: {{model.name}}</hbox>
-<hbox xs="fit">lyrics: {{lyrics-chooser lines=model.lines addPosition=addPosition}}</hbox>
-<hbox xs="fit">audio: {{model.audio}}</hbox>
-<button {{action (perform destroy)}}>delete</button>
+<hbox xs="fit">
+  <centered>{{model.name}}</centered>
+  <box xs="fit">
+    {{#if isRunning}}
+      <button {{action "stop"}}>stop</button>
+    {{else}}
+      <button {{action "start"}}>start</button>
+    {{/if}}
+  </box>
+</hbox>
+
+<hbox xs="fit">
+  <box xs="fit">lyrics</box>
+  <centered>
+    {{lyrics-chooser lines=model.lines addPosition=addPosition}}
+  </centered>
+</hbox>
+<hbox xs="fit">
+  <box xs="fit">audio</box>
+  <box>{{model.audio}}</box>
+</hbox>
+
+<hbox xs="fit">
+  {{#each positions as |position|}}
+    <box xs="fit" wrap>{{moment-format position.time "mm:ss:SSS"}}</box>
+  {{/each}}
+</hbox>
+
+<vbox>
+  <centered xs="fit" justify="end">
+    <button {{action (perform save)}}>save</button>
+  </centered>
+  <centered xs="fit" justify="end">
+    <button {{action (perform destroy)}}>delete</button>
+  </centered>
+</vbox>
+
+<hbox>
+  formatted lyrics go here
+</hbox>

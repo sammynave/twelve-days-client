@@ -1,7 +1,7 @@
 {{#each lines as |line index|}}
   <hbox>
     {{#if line}}
-      {{line-presenter line=line lineIndex=index choose=(action "choose")}}
+      {{line-presenter timer=timer line=line lineIndex=index choose=(action "choose")}}
     {{else}}
       <br>
     {{/if}}
