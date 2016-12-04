@@ -11,7 +11,7 @@
 
 <hbox xs="fit">
   <box xs="fit">lyrics</box>
-  <centered>
+  <centered class="lyrics">
     {{lyrics-chooser lines=model.lines addPosition=addPosition}}
   </centered>
 </hbox>
@@ -22,7 +22,7 @@
 
 <hbox xs="fit">
   {{#each positions as |position|}}
-    <box xs="fit" wrap>{{moment-format position.time "mm:ss:SSS"}}</box>
+    <box xs="fit" wrap class="position">{{moment-format position.time "mm:ss:SSS"}}</box>
   {{/each}}
 </hbox>
 

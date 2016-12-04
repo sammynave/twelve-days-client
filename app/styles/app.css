@@ -93,3 +93,16 @@ a {
 .word {
   cursor: pointer;
 }
+
+.position {
+  padding: .5em;
+}
+
+.lyrics {
+  font-size: 1.2rem;
+  padding: 2em 0;
+}
+
+.lyrics-chooser-line {
+  padding: .5em 0;
+}

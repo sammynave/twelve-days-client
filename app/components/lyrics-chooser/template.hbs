@@ -1,5 +1,5 @@
 {{#each lines as |line index|}}
-  <hbox>
+  <hbox class="lyrics-chooser-line">
     {{#if line}}
       {{line-presenter timer=timer line=line lineIndex=index choose=(action "choose")}}
     {{else}}
