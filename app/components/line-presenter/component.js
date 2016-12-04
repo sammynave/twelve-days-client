@@ -13,6 +13,8 @@ export default Component.extend({
   actions: {
     choose(wordIndex) {
       this.attrs.choose(get(this, 'lineIndex'), wordIndex);
+      let span = this.$('span')[wordIndex];
+      this.$(span).addClass('chosen');
     }
   }
 });
